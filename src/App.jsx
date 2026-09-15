@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import { profitPage } from './config/profitPage.jsx'
 import { Header } from './components/Header/Header.jsx'
 import { Hero } from './components/Hero/Hero.jsx'
 import { MobileBar } from './components/MobileBar/MobileBar.jsx'
-import { PurchaseFormModal } from './components/PurchaseFormModal/PurchaseFormModal.jsx'
 import { Compare, Problems, Transformations } from './components/sections/Diagnosis.jsx'
 import { Board, Bonus, Flow, Tools, Where } from './components/sections/Product.jsx'
 import {
@@ -18,9 +17,6 @@ import {
 import './components/sections/sections.css'
 
 export default function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [ctaSource, setCtaSource] = useState('')
-  const triggerRef = useRef(null)
   const page = profitPage
 
   useEffect(() => {
@@ -28,9 +24,7 @@ export default function App() {
   }, [page.title])
 
   function openModal(source, trigger) {
-    triggerRef.current = trigger
-    setCtaSource(source)
-    setIsModalOpen(true)
+    window.location.assign(page.checkoutUrl)
   }
 
   return (
@@ -58,13 +52,6 @@ export default function App() {
       <Footer page={page} />
       <MobileBar page={page} onOpen={openModal} />
 
-      <PurchaseFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        page={page}
-        ctaSource={ctaSource}
-        returnFocusRef={triggerRef}
-      />
     </>
   )
 }
