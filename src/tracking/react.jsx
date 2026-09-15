@@ -28,7 +28,6 @@ export function TrackingProvider({ children, itemId = '', itemName = '' }) {
         variante: context.variante,
         variant_origin: context.variant_origin,
       })
-
       initBehavior({ itemId: itemId || config.siteId, itemName })
       initVideo()
     } catch (error) {
