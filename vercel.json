@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/:route*/assets/:asset*",
+      "destination": "/assets/:asset*"
+    },
+    {
       "source": "/((?!api/|assets/).*)",
       "destination": "/index.html"
     }
