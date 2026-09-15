@@ -6,14 +6,12 @@ export const META_EVENTS = Object.freeze({
   view_item: 'ViewContent',
   cta_click: 'CTAClick',
   generate_lead: 'Lead',
-  begin_checkout: 'InitiateCheckout',
 })
 
 export const STANDARD_META_EVENTS = Object.freeze([
   'PageView',
   'ViewContent',
   'Lead',
-  'InitiateCheckout',
 ])
 
 export const ALLOWED_EVENTS = Object.freeze([

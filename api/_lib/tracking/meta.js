@@ -10,7 +10,6 @@ const META_EVENT_NAMES = {
   view_item: 'ViewContent',
   cta_click: 'CTAClick',
   generate_lead: 'Lead',
-  begin_checkout: 'InitiateCheckout',
 }
 
 function hash(value) {
