@@ -77,7 +77,7 @@ export function PrivacyNotice({ isOpen, onClose, contactEmail = '' }) {
             className={`privacy-notice__optout${optedOut ? ' is-active' : ''}`}
             onClick={toggleOptOut}
           >
-            {optedOut ? 'Medição desativada neste navegador — reativar' : 'Desativar a medição neste navegador'}
+            {optedOut ? 'Medição desativada neste navegador: reativar' : 'Desativar a medição neste navegador'}
           </button>
         </section>
 
