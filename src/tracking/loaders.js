@@ -2,6 +2,8 @@
 import { config, debugLog } from './config.js'
 
 let gtagLoaded = false
+let ga4Configured = false
+let googleAdsConfigured = false
 let gtmLoaded = false
 let pixelLoaded = false
 
@@ -10,6 +12,14 @@ function injectScript(src) {
   script.async = true
   script.src = src
   document.head.appendChild(script)
+}
+
+function ensureGtagScript() {
+  if (gtagLoaded) return
+
+  gtagLoaded = true
+  injectScript(`https://www.googletagmanager.com/gtag/js?id=${config.ga4Id || config.googleAdsId}`)
+  gtag('js', new Date())
 }
 
 export function gtag() {
@@ -55,16 +65,26 @@ export function loadGtm() {
 }
 
 export function loadGa4() {
-  if (gtagLoaded || !config.ga4Id) return
+  if (ga4Configured || !config.ga4Id) return
 
-  gtagLoaded = true
-  injectScript(`https://www.googletagmanager.com/gtag/js?id=${config.ga4Id}`)
-  gtag('js', new Date())
+  ensureGtagScript()
+  ga4Configured = true
   gtag('config', config.ga4Id, {
     send_page_view: false,
     debug_mode: config.debug,
   })
   debugLog('gtag carregado', config.ga4Id)
+}
+
+// Google Ads global site tag. O ID identifica a conta; eventos de conversao
+// exigem tambem o conversion_label fornecido no Google Ads.
+export function loadGoogleAds() {
+  if (googleAdsConfigured || !config.googleAdsId) return
+
+  ensureGtagScript()
+  googleAdsConfigured = true
+  gtag('config', config.googleAdsId, { send_page_view: false })
+  debugLog('Google Ads carregado', config.googleAdsId)
 }
 
 // Mesmo snippet base da Meta, injetado so depois do aceite.

@@ -18,6 +18,7 @@ export const config = Object.freeze({
   enabled: flag(env.VITE_TRACKING_ENABLED, false),
   siteId: env.VITE_SITE_ID || 'desconhecido',
   ga4Id: env.VITE_GA4_MEASUREMENT_ID || '',
+  googleAdsId: env.VITE_GOOGLE_ADS_ID || 'AW-17812782806',
   gtmId: env.VITE_GTM_ID || '',
   pixelIds: list(env.VITE_META_PIXEL_ID),
   debug: flag(env.VITE_TRACKING_DEBUG, false),
