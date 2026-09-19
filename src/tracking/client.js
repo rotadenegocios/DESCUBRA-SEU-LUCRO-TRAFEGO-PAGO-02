@@ -15,6 +15,7 @@ import {
   applyConsentDefaults,
   gtag,
   loadGa4,
+  loadGoogleAds,
   loadGtm,
   loadPixel,
   updateConsentSignals,
@@ -183,7 +184,10 @@ function applyDecision(consent) {
     loadGa4()
     loadGtm()
   }
-  if (consent.ads) loadPixel({ external_id: getContext().user_id })
+  if (consent.ads) {
+    loadGoogleAds()
+    loadPixel({ external_id: getContext().user_id })
+  }
 }
 
 export function startTracking() {
