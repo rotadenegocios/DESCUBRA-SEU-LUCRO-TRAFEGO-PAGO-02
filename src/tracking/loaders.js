@@ -76,8 +76,6 @@ export function loadGa4() {
   debugLog('gtag carregado', config.ga4Id)
 }
 
-// Google Ads global site tag. O ID identifica a conta; eventos de conversao
-// exigem tambem o conversion_label fornecido no Google Ads.
 export function loadGoogleAds() {
   if (googleAdsConfigured || !config.googleAdsId) return
 
