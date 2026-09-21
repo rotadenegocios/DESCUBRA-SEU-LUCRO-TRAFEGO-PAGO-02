@@ -125,7 +125,7 @@ export const profitPage = {
   },
   mentorCredentials: ['+15 anos como empresário', 'Mais de 5 empresas', 'Fundador da Rota de Negócios'],
   whatsapp:
-    'https://api.whatsapp.com/send/?phone=5584991730656&text=Ol%C3%A1%21+Vim+pelo+Instagram+e+tenho+interesse+em+entender+melhor+como+a+%2ARota%2A+pode+ajudar+minha+empresa.Quero+ter+mais+clareza+sobre+%2Agest%C3%A3o%2C+lucro%2C+impostos%2C+organiza%C3%A7%C3%A3o+e+crescimento%2A.Pode+me+ajudar%3F&type=phone_number&app_absent=0',
+    'https://api.whatsapp.com/send/?phone=5584991730656&text=Ol%C3%A1%2C+tenho+interesse+no+Descubra+seu+Lucro.&type=phone_number&app_absent=0',
   offerItems: [
     'Método completo (R$497)',
     'Ferramenta financeira (R$397)',
