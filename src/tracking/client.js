@@ -32,6 +32,11 @@ const eventCounts = new Map()
 
 let context = null
 let started = false
+let eventFilter = null
+
+export function setEventFilter(names) {
+  eventFilter = names ? new Set(names) : null
+}
 
 function buildContext() {
   const { search, utm } = getQueryParameters()
@@ -127,6 +132,11 @@ export function track(name, params = {}, options = {}) {
   if (!config.enabled || isOptedOut()) return
 
   try {
+    if (eventFilter && !eventFilter.has(name)) {
+      debugLog('evento fora do perfil da pagina, ignorado:', name)
+      return
+    }
+
     if (!ALLOWED_EVENTS.includes(name)) {
       debugLog('evento fora da whitelist, ignorado:', name)
       return

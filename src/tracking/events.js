@@ -32,7 +32,6 @@ export const ALLOWED_EVENTS = Object.freeze([
   'form_field_error',
   'form_abandon',
   'generate_lead',
-  'begin_checkout',
   'faq_open',
   'tab_change',
   'outbound_click',

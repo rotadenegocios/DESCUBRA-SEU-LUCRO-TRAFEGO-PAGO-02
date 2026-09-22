@@ -1,13 +1,13 @@
 // GERADO POR _shared/sync-tracking.mjs - NAO EDITE AQUI
 import React, { createContext, useContext, useEffect, useRef } from 'react'
 import { initBehavior } from './behavior.js'
-import { getContext, startTracking, track } from './client.js'
+import { getContext, setEventFilter, startTracking, track } from './client.js'
 import { config, debugLog } from './config.js'
 import { initVideo } from './video.js'
 
 const TrackingContext = createContext({ track })
 
-export function TrackingProvider({ children, itemId = '', itemName = '' }) {
+export function TrackingProvider({ children, itemId = '', itemName = '', allowedEvents = null }) {
   const initialized = useRef(false)
 
   useEffect(() => {
@@ -16,6 +16,7 @@ export function TrackingProvider({ children, itemId = '', itemName = '' }) {
     initialized.current = true
 
     try {
+      setEventFilter(allowedEvents)
       startTracking()
 
       const context = getContext()

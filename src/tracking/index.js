@@ -27,40 +27,25 @@ export function trackPageChange({ itemId = '', itemName = '' } = {}) {
   })
 }
 
-// Chamado pelo modal quando o POST /api/leads responde 201.
+// Chamado pelo modal quando o POST /api/leads responde 201. O contrato das
+// paginas de trafego permite somente page_view, scroll_depth, view_item e
+// cta_click; o envio do formulario e um CTA de conversao dentro desse contrato.
 export function trackLead({ itemId, itemName, ctaSource, email, phone }) {
   markLeadSubmitted()
 
   track(
-    'generate_lead',
-    { cta_source: ctaSource || currentCtaSource(), item_id: itemId, item_name: itemName },
+    'cta_click',
+    {
+      cta_source: ctaSource || currentCtaSource() || 'form_submit',
+      cta_action: 'form_submit',
+      item_id: itemId,
+      item_name: itemName,
+    },
     {
       metaParams: { content_ids: [itemId], content_name: itemName, content_type: 'product' },
       userData: { email, phone },
       pixelEnabled: false,
       capiOnly: true,
     },
-  )
-}
-
-// Chamado imediatamente antes do redirecionamento para o checkout.
-export function trackBeginCheckout({ itemId, itemName, checkoutUrl, ctaSource }) {
-  let checkoutHost = ''
-
-  try {
-    checkoutHost = new URL(checkoutUrl).hostname
-  } catch {
-    checkoutHost = ''
-  }
-
-  track(
-    'begin_checkout',
-    {
-      item_id: itemId,
-      item_name: itemName,
-      checkout_host: checkoutHost,
-      cta_source: ctaSource || currentCtaSource(),
-    },
-    { metaParams: { content_ids: [itemId], content_name: itemName, content_type: 'product' } },
   )
 }
