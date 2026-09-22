@@ -27,7 +27,7 @@ export const profitPage = {
     'Preencha apenas vendas e gastos',
   ],
   cta: 'Quero descobrir meu lucro real',
-  checkoutUrl: 'https://payfast.greenn.com.br/redirect/311914',
+  checkoutUrl: 'https://payfast.greenn.com.br/redirect/320566',
   purchaseFlow: 'form',
   isPaidTraffic: true,
   showFloatingBuyBar: false,
