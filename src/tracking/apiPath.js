@@ -1,7 +1,7 @@
 // GERADO POR _shared/sync-tracking.mjs - NAO EDITE AQUI
-// O BIO serve as paginas sob um prefixo (/dsl-tf01, /kpc-tf01). As rotas de API
-// precisam do mesmo prefixo para nao cair no rewrite de SPA do dominio raiz.
-const PREFIX_PATTERN = /^\/[a-z]{2,5}-tf\d{2}(?=\/|$)/
+// O BIO serve paginas sob prefixos legados (/dsl-tf01, /pa-tf01) e canonicos
+// (/dsl01, /pa01). APIs precisam do mesmo prefixo para nao cair no SPA raiz.
+const PREFIX_PATTERN = /^\/(?:dsl(?:-tf)?\d{2}|pa(?:-tf)?\d{2}|kpc(?:-tf)?\d{2}|dsl-teste01|dsl-upsell|kpc-upsell)(?=\/|$)/
 
 export function resolveApiPath(path) {
   if (typeof window === 'undefined') return path
