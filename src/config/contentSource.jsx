@@ -125,7 +125,7 @@ export const profitPage = {
   },
   mentorCredentials: ['+15 anos como empresário', 'Mais de 5 empresas', 'Fundador da Rota de Negócios'],
   whatsapp:
-    'https://api.whatsapp.com/send/?phone=558498132560&text=Ol%C3%A1%2C+tenho+interesse+no+Descubra+seu+Lucro.&type=phone_number&app_absent=0',
+    'https://api.whatsapp.com/send/?phone=558494240186&text=Ol%C3%A1%2C+tenho+interesse+no+Descubra+seu+Lucro.&type=phone_number&app_absent=0',
   offerItems: [
     'Método completo (R$497)',
     'Ferramenta financeira (R$397)',
